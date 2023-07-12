@@ -1,58 +1,50 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
-        type: "imput",
+        type: "input",
         message: "Title of your project?",
         name: "title",
     },
     {
-        type: "imput",
+        type: "input",
         message: "Why did you build this?",
-        name: "Why",
+        name: "description",
     },
     {
-        type: "imput",
-        message: "What problem does this program solve?",
-        name: "problem",
-    },
-    {
-        type: "imput",
-        message: "What did you learn for this?",
-        name: "learn",
-    },
-    {
-        type: "imput",
+        type: "input",
         message: "How do you install?",
         name: "install",
     },
     {
-        type: "imput",
-        message: "what are the key features?",
-        name: "features",
+        type: "list",
+        message: "choose a license",
+        name: "license", 
+        choices: [1,2,3]
     },
     {
-        type: "imput",
+        type: "input",
         message: "Who are the contributers?",
-        name: "Contributers",
+        name: "contributors",
     },
     {
-        type: "imput",
-        message: "any 3rd party assets? any tutorials?",
-        name: "thirdparty",
-    },
-    {
-        type: "imput",
+        type: "input",
         message: "A link to test it",
-        name: "link",
+        name: "test",
     },
     {
-        type: "imput",
+        type: "input",
         message: "Your github or repo",
         name: "github",
+    },
+    {
+        type: "input",
+        message: "Your github or repo",
+        name: "email",
     },
 ];
 
@@ -63,8 +55,12 @@ function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt()
+    inquirer.prompt(questions).then((answers)=> {
+        console.log(answers);
+    })
+    
 }
 
 // Function call to initialize app
 init();
+ 
